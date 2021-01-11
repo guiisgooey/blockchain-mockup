@@ -8,6 +8,7 @@ class blockchain:
 
     block = block("Genesis")
     temp = head = block
+    temp2 = tail = block
 
     def __init__(self, pow="sha_256"):
         """Initializes a BlockChain object with a set proof of work."""
@@ -20,6 +21,7 @@ class blockchain:
 
         self.block.next = block
         self.block = self.block.next
+        self.tail = self.block
 
     def mine(self, block):
         """Mines by checking if the hashed block is smaller than or equal to the target size after adjusting the hash to the correct base. 
@@ -40,29 +42,10 @@ class blockchain:
             print(current)
             current = current.next
 
-    def traverse(self):
-        """Traverses the BlockChain and returns the number of blocks in the BlockChain."""
-        n = 0
-        current = self.head
-        while current is not None:
-            n += 1
-            current = current.next
-        return n
-
     def update(self, blockchain_obj)
-        """Updates BlockChain based on which BlockChain is longer (starting at block 0)."""
-        if(self.traverse() < blockchain_obj.traverse()):
-            current = self.head
-            current_other = blockchain_obj.head
-            while current_other is not None:
-                temp = current = current_other
-                current_other = current_other.next
-                current = current.next
-        elif (self.traverse() > blockchain_obj.traverse()):
-            current = self.head
-            current_other = blockchain_obj.head
-            while current is not None:
-                temp = current_other = current
-                current_other = current_other.next
-                current = current.next
+        """Updates BlockChain based on which BlockChain is longer."""
+        if(self.tail.blockNo < blockchain_obj.tail.blockNo):
+            temp = self.head = blockchain_obj.head
+        elif (self.tail.blockNo > blockchain_obj.tail.blockNo):
+            temp = blockchain_obj.head = self.head
 
