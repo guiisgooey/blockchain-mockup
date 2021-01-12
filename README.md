@@ -142,11 +142,11 @@ In main.py there is a variable named pow, here are the accepted values for it to
 Any Variation of:
 
 ```
-keccak-256, keccak_256, or keccak 256
+"keccak-256", "keccak_256", "keccak 256", or "keccak256"
 ```
 or
 ```
-scrypt
+"scrypt"
 ```
 Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
 

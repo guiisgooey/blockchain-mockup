@@ -22,7 +22,7 @@ class block:
             self.pow = pow
 
         h = sha256()
-        if (pow.lower() == "keccak_256" or pow.lower() == "keccak256" or pow.lower() == "keccak-256"):
+        if (pow.lower() == "keccak_256" or pow.lower() == "keccak256" or pow.lower() == "keccak-256" or pow.lower() == "keccak 256"):
             h = keccak_256()
         elif (pow.lower() == "scrypt"):
             pass
