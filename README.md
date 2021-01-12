@@ -20,7 +20,7 @@ Pysha3 Version 1.0.2
 
 #### 1. Clone the repository
 
-2. Create a Python Virtual Environment: 
+#### 2. Create a Python Virtual Environment: 
 
 On Windows:
 
@@ -35,13 +35,13 @@ On Mac/Linux:
 Open the desired location of your virtual environment in the terminal and run the following line, where 'environment_name' is the desired named of your virtual environment:
 
 
-If you do not desire to create a virtual environment to run this program, you may use your main python interpreter to install the requirements and run the program.
+##### Notice: If you do not desire to create a virtual environment to run this program, you may use your main python interpreter to install the requirements and run the program.
 
 ```
 $ python3 -m venv environment_name
 ```
 
-3. Activate the Virtual Environment:
+#### 3. Activate the Virtual Environment:
 
 On Windows:
 
@@ -59,7 +59,7 @@ Run the following command in the directory of your virtual environment in the te
 $ source environment_name/bin/activate
 ```
 
-4. Download the prerequisites listed in requirements.txt using the following line of code:
+#### 4. Download the prerequisites listed in requirements.txt using the following line of code:
 
 ```
 $ pip install -r requirements.txt
@@ -71,7 +71,7 @@ To verify that the requirements are installed you may run:
 $ pip list
 ```
 
-5. Run main.py
+#### 5. Run main.py
 
 Windows:
 
@@ -89,7 +89,7 @@ Run the following code in the repository's directory in the terminal:
 $ python3 main.py
 ```
 
-You may also run the code in any IDE that supports Python aslong as scripts are enabled on your system. You do not need scripts enabled if a virtual environment is not being utilized. 
+##### Notice: You may also run the code in any IDE that supports Python aslong as scripts are enabled on your system. You do not need scripts enabled if a virtual environment is not being utilized. 
 
 
 ## Modifying the Program
@@ -153,7 +153,7 @@ or
 ```
 "scrypt"
 ```
-Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
+##### Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
 
 Removal of the pow variable or assigning the variable an invalid value will cause the proof of work used to be the SHA-256 hashing algorithm by default.
 
