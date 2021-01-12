@@ -93,48 +93,47 @@ You may also run the code in any IDE that supports Python aslong as scripts are 
 
 When modifying the program it is important to utilize the features these key variables provide:
 
-    Nonce: 
-    An arbitrary number used to create differences between hashes to find a hash that fits within the target. The nonce is added to the hash and if the hash is not accepted, it is changed so the overall hash will change, eventually finding a hash that fits within the target. 
+Nonce: 
+An arbitrary number used to create differences between hashes to find a hash that fits within the target. The nonce is added to the hash and if the hash is not accepted, it is changed so the overall hash will change, eventually finding a hash that fits within the target. 
 
-    Max Nonce: 
-    This is the maximum nonce that restricts the number of times hashing can be attempted for a block. In this program the max nonce is calculated by 2 to the power of the bytesize of the hash. For sha-256 because it is a 32 byte hash this is calculated by doing 2^32. Any suitably high number works for a max nonce. 
+Max Nonce: 
+This is the maximum nonce that restricts the number of times hashing can be attempted for a block. In this program the max nonce is calculated by 2 to the power of the bytesize of the hash. For sha-256 because it is a 32 byte hash this is calculated by doing 2^32. Any suitably high number works for a max nonce. 
 
-    POW: 
-    This is the proof of work being utilized in the mining and hashing of the block. Proof of work is utilized to determine if a hash will be accepted or not.
-    This is done by setting a Target with a Difficulty (See Below) to judge hashed data on. If the hash is less than the target hash then it is accepted and the block is added to the blockchain. This is required to prevent malicious altering of the blockchain which is most commonly done through 'double-spending' where users attempt to spend a certain amount of cryptocurrency twice in order to trick a user into believing they have received the amount of cryptocurrency. 
+POW: 
+This is the proof of work being utilized in the mining and hashing of the block. Proof of work is utilized to determine if a hash will be accepted or not. This is done by setting a Target with a Difficulty (See Below) to judge hashed data on. If the hash is less than the target hash then it is accepted and the block is added to the blockchain. This is required to prevent malicious altering of the blockchain which is most commonly done through 'double-spending' where users attempt to spend a certain amount of cryptocurrency twice in order to trick a user into believing they have received the amount of cryptocurrency. 
 
-    Difficulty: 
-    This is the difficulty of the target hash. This amount is subtracted from 8 times the bytesize of the hash. A larger difficulty will require more hashes to be performed to find an accepted hash. 
+Difficulty: 
+This is the difficulty of the target hash. This amount is subtracted from 8 times the bytesize of the hash. A larger difficulty will require more hashes to be performed to find an accepted hash. 
 
-    Target: 
-    This is the target hash used to compare other hashes to. If a hash is smaller than the target hash it is accepted. The target hash is calculated by subtracting the difficulty from 8 times the bytesize of the hash. For SHA-256, if there is a difficulty of 20, the target string is 256 - 20, or 236. 
+Target: 
+This is the target hash used to compare other hashes to. If a hash is smaller than the target hash it is accepted. The target hash is calculated by subtracting the difficulty from 8 times the bytesize of the hash. For SHA-256, if there is a difficulty of 20, the target string is 256 - 20, or 236. 
 
-    Hash (Object): 
-    This is an object created that accepts bytes and subsequently hashes them into a string of encoded characters that cannot be reverse engineered into their original form. Hash Objects used in this program include the sha256 function object and the keccak_256 function object. A Scrypt function object is intended to be added at a later date. 
+Hash (Object): 
+This is an object created that accepts bytes and subsequently hashes them into a string of encoded characters that cannot be reverse engineered into their original form. Hash Objects used in this program include the sha256 function object and the keccak_256 function object. A Scrypt function object is intended to be added at a later date. 
 
-    Hash (String): 
-    This is the string of encoded characters produced by a hashing function. This is what is output when printing the hash of a block. 
+Hash (String): 
+This is the string of encoded characters produced by a hashing function. This is what is output when printing the hash of a block. 
 
-    Previous Hash: 
-    This is the hash of the previous block. It is used for placement reference of the current block. 
+Previous Hash: 
+This is the hash of the previous block. It is used for placement reference of the current block. 
 
-    Block Number: 
-    This is the index of the block in the blockchain. 
+Block Number: 
+This is the index of the block in the blockchain. 
 
-    Data: 
-    This is the data of each block generated. This is made into a hash alongside the Timestamp, Previous Hash, Nonce and Block Number. 
+Data: 
+This is the data of each block generated. This is made into a hash alongside the Timestamp, Previous Hash, Nonce and Block Number. 
 
-    Timestamp: 
-    This is the time in UTC that a hash is generated. If the hash is not accepted, the timestamp is reset with every new hash generated. 
+Timestamp: 
+This is the time in UTC that a hash is generated. If the hash is not accepted, the timestamp is reset with every new hash generated. 
 
-    Head: 
-    This is the first block in the blockchain. It is what is used to link to all other blocks in the blockchain. 
+Head: 
+This is the first block in the blockchain. It is what is used to link to all other blocks in the blockchain. 
 
-    Next: 
-    This is the next block in reference to the current block of the blockchain. This is used to reference each block one after another. 
+Next: 
+This is the next block in reference to the current block of the blockchain. This is used to reference each block one after another. 
 
-    Tail: 
-    This is the last block in the blockchain. Its block number is used to reference the total amount of blocks in the block chain. Its next is none by default.
+Tail: 
+This is the last block in the blockchain. Its block number is used to reference the total amount of blocks in the block chain. Its next is none by default.
 
 ### Accepted Proof of Work Algorithms
 
@@ -145,6 +144,7 @@ Any Variation of:
 ```
 keccak-256, keccak_256, or keccak 256
 ```
+or
 ```
 scrypt
 ```
