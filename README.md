@@ -18,7 +18,7 @@ Pysha3 Version 1.0.2
 
 ### Installation and Running 
 
-1. Clone the repository
+#### 1. Clone the repository
 
 2. Create a Python Virtual Environment: 
 
