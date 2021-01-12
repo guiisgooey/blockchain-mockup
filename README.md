@@ -152,6 +152,22 @@ This is the next block in reference to the current block of the blockchain. This
 
 This is the last block in the blockchain. Its block number is used to reference the total amount of blocks in the block chain. Its next is none by default.
 
+### Main.py
+
+The primary purpose of main.py is to provide sample utilization of the following:
+
+- Proof of Work Variable
+
+- Blockchain creation
+
+- Block creation
+
+- Block Mining
+
+- Blockchain Printing
+
+- Blockchain updating
+
 ### Accepted Proof of Work Algorithms
 
 In main.py there is a variable named pow, here are the accepted values for it to be used in the blockchain. 

@@ -42,7 +42,7 @@ class blockchain:
             print(current)
             current = current.next
 
-    def update(self, blockchain_obj)
+    def update(self, blockchain_obj):
         """Updates BlockChain based on which BlockChain is longer."""
         if(self.tail.blockNo < blockchain_obj.tail.blockNo):
             temp = self.head = blockchain_obj.head
