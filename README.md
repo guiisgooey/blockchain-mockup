@@ -8,13 +8,13 @@ This program includes methods for: The creation of blocks, the hashing of blocks
 
 The following software is required to run this program:
 
-    ```
-    Python Version 2.7 or later
-    ```
+```
+Python Version 2.7 or later
+```
 
-    ```
-    Pysha3 Version 1.0.2
-    ```
+```
+Pysha3 Version 1.0.2
+```
 
 ### Installation and Running 
 
@@ -22,71 +22,71 @@ The following software is required to run this program:
 
 2. Create a Python Virtual Environment: 
 
-    On Windows:
+On Windows:
 
-    Open the desired location of your virtual environment in the command prompt and run the following line, where 'environment_name' is the desired named of your virtual environment:
+Open the desired location of your virtual environment in the command prompt and run the following line, where 'environment_name' is the desired named of your virtual environment:
 
-    ```
-    python -m venv environment_name
-    ```
+```
+python -m venv environment_name
+```
 
-    On Mac/Linux:
+On Mac/Linux:
 
-    Open the desired location of your virtual environment in the terminal and run the following line, where 'environment_name' is the desired named of your virtual environment:
+Open the desired location of your virtual environment in the terminal and run the following line, where 'environment_name' is the desired named of your virtual environment:
 
-    ```
-    $ python3 -m venv environment_name
-    ```
+```
+$ python3 -m venv environment_name
+```
 
 3. Activate the Virtual Environment:
 
-    On Windows:
+On Windows:
 
-    Run the following command in the directory of the repository in the command prompt:
+Run the following command in the directory of the repository in the command prompt:
 
-    ```
-    environment_name\Scripts\activate.bat
-    ```
+```
+environment_name\Scripts\activate.bat
+```
 
-    On Mac/Linux:
+On Mac/Linux:
 
-    Run the following command in the directory of your virtual environment in the terminal:
+Run the following command in the directory of your virtual environment in the terminal:
 
-    ```
-    $ source environment_name/bin/activate
-    ```
+```
+$ source environment_name/bin/activate
+```
 
 4. Download the prerequisites listed in requirements.txt using the following line of code:
 
-    ```
-    $ pip install -r requirements.txt
-    ```
+```
+$ pip install -r requirements.txt
+```
 
-    To verify that the requirements are installed you may run:
+To verify that the requirements are installed you may run:
 
-    ```
-    $ pip list
-    ```
+```
+$ pip list
+```
 
 5. Run main.py
 
-    Windows:
+Windows:
 
-    Run the following code in the repository's directory in the terminal:
+Run the following code in the repository's directory in the terminal:
 
-    ```
-    python main.py
-    ```
+```
+python main.py
+```
 
-    Mac/Linux:
+Mac/Linux:
 
-    Run the following code in the repository's directory in the terminal:
+Run the following code in the repository's directory in the terminal:
 
-    ```
-    $ python3 main.py
-    ```
+```
+$ python3 main.py
+```
 
-    You may also run the code in any IDE that supports Python aslong as scripts are enabled on your system. 
+You may also run the code in any IDE that supports Python aslong as scripts are enabled on your system. 
 
 
 ## Modifying the Program
@@ -140,17 +140,17 @@ When modifying the program it is important to utilize the features these key var
 
 In main.py there is a variable named pow, here are the accepted values for it to be used in the blockchain. 
 
-    Any Variation of:
+Any Variation of:
 
-    ```
-    keccak-256, keccak_256, or keccak 256
-    ```
-    ```
-    scrypt
-    ```
-    Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
+```
+keccak-256, keccak_256, or keccak 256
+```
+```
+scrypt
+```
+Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
 
-    Removal of the pow variable or assigning the variable an invalid value will cause the proof of work used to be the SHA-256 hashing algorithm by default.
+Removal of the pow variable or assigning the variable an invalid value will cause the proof of work used to be the SHA-256 hashing algorithm by default.
 
 ## Authors
 
