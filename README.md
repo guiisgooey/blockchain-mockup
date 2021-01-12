@@ -153,7 +153,7 @@ Any Variation of:
 ```
     Notice: A Scrypt hash function object is not currently included with the program. This is intended to be added at a later date. 
 
-    Removal of the pow variable or assigning the variable an invalid value will cause the proof of work used to be the SHA-256 hashing algorithm by default.
+Removal of the pow variable or assigning the variable an invalid value will cause the proof of work used to be the SHA-256 hashing algorithm by default.
 
 ## Authors
 
