@@ -28,7 +28,7 @@ class merkle_tree():
     def verify(self):
         current = [self.root] #basically used as a queue for bfs of the nodes
         for i in current:
-            while hasattr(current, 'left'):
+            while current.left:
                 if current.right:
                     assert current.data == hash(current.left.data + current.right.data)
                     current.pop()
