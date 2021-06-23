@@ -37,3 +37,5 @@ class merkle_tree():
                     assert current.data == hash(current.left.data)
                     current.pop()
                     current.append(current.left)
+    def root_hash(self):
+        return self.root.hash

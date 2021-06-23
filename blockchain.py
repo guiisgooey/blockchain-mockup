@@ -1,11 +1,12 @@
 import hashlib
 import time
+from merkle import merkle_tree
 
 class Blockchain:
     difficulty = 20
     maxNonce = 2**32
     target = 2**(256-difficulty) #If you are implementing a non 16 bit hashing algorithm please adjust 256 to whatever base you are using squared
-
+    merkle_tree = merkle_tree()
     def __init__(self):
         """Initializes a BlockChain object with a set proof of work."""
         self.chain = [] #change to doubly linked list later
@@ -22,10 +23,11 @@ class Blockchain:
         self.tail = self.block
 
     def new_block(self, proof, previous_hash=None):
+        merkle_tree.construct(self.current_transactions)
         block = {
             'index': len(self.chain) + 1,
             'timestamp' : time.time(),
-            'transactions': self.current_transactions, #change to merkle root later
+            'transactions': merkle_tree.root_hash(), 
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
         }
@@ -59,10 +61,6 @@ class Blockchain:
         nonce = 0
         while int(self.hash(block, nonce), 16) <= self.target > self.target:
             nonce += 1
-
-    def merkle_root(list):
-        "need to do like a tree class for this"
-        pass
         
     def history(self):
         """Prints all blocks within the generated BlockChain, 
