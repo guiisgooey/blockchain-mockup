@@ -10,7 +10,7 @@ class merkle_tree():
 
     def construct(self, transactions):
         current_level = []
-        previous_level = [node(hash(i)) for i in transactions] #leaves
+        previous_level = [node(hash(i), i) for i in transactions] #leaves
         while len(previous_level) > 1:
             for i in range (0,len(previous_level), 2):
                 current_node = node()
@@ -28,7 +28,7 @@ class merkle_tree():
     def verify(self):
         current = [self.root] #basically used as a queue for bfs of the nodes
         for i in current:
-            while current.left:
+            while hasattr(current, 'left'):
                 if current.right:
                     assert current.data == hash(current.left.data + current.right.data)
                     current.pop()
@@ -37,5 +37,6 @@ class merkle_tree():
                     assert current.data == hash(current.left.data)
                     current.pop()
                     current.append(current.left)
+
     def root_hash(self):
-        return self.root.hash
+        return self.root.data
