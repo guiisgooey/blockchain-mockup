@@ -37,9 +37,10 @@ class merkle_tree():
             current_level = [] 
         self.root = current_level[0] #will only have len of 1 anyways
     
-    def verify(self, start, transactions):
-        """Verifies the structure of the Merkle tree is correct from starting node to base."""
-        current = [start] #basically used as a queue for bfs of the nodes
+    def consistency_proof(self, head):
+        """Verifies the previous records are untampered with when new records are added.
+        A copy of the head of the tree must be saved by the client to utilize this."""
+        current = [head] #basically used as a queue for bfs of the nodes
         for i in current:
             while current['left']: #leaves left value equals None which will read as False
                 if current['right']:
@@ -51,7 +52,8 @@ class merkle_tree():
                     assert current.data == hash(current['left']['data'])
                     current.pop()
                     current.append(current['left']) #appends left child to the queue
-        transactions = [self.node(i) for i in transactions] #creates a list of nodes that contain transactions as data to compare with the leaves of the tree
+        transactions = [self.node(i) for i in self.transactions] #creates a list of nodes that contain transactions as data to compare with the leaves of the tree
+        transactions = transactions[:len(current)] #we only want to check the common leaves the two trees share
         assert current == transactions
     
     def root_hash(self):
