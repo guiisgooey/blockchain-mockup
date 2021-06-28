@@ -3,9 +3,7 @@ import hashlib
 class merkle_tree():
     def __init__(self, transactions):
         """Initializes a new Merkle tree"""
-        self.root = None
-        self._transactions = transactions
-        self._construct() #automatically constructs tree using provided transactions
+        self.root = self._construct(transactions) #automatically constructs tree using provided transactions
 
     @staticmethod
     def hash(item):
@@ -35,27 +33,32 @@ class merkle_tree():
                 current_level.append(current_node)
             previous_level = current_level
             current_level = [] 
-        self.root = current_level[0] #will only have len of 1 anyways
+        return current_level[0] #will only have len of 1 anyways
+    
+    def inclusion_proof(self):
+        pass
     
     def consistency_proof(self, head):
         """Verifies the previous records are untampered with when new records are added.
         A copy of the head of the tree must be saved by the client to utilize this."""
-        current = [head] #basically used as a queue for bfs of the nodes
-        for i in current:
-            while current['left']: #leaves left value equals None which will read as False
-                if current['right']:
-                    assert current.data == hash(current['left']['data'] + current['right']['data'])
-                    current.pop()
-                    current.append(current['left']) #appends left and right children to the queue
-                    current.append(current['right'])
-                else:
-                    assert current.data == hash(current['left']['data'])
-                    current.pop()
-                    current.append(current['left']) #appends left child to the queue
-        transactions = [self.node(i) for i in self.transactions] #creates a list of nodes that contain transactions as data to compare with the leaves of the tree
-        transactions = transactions[:len(current)] #we only want to check the common leaves the two trees share
-        assert current == transactions
+        t2 = self.get_transactions(self.root) #gets transactions from current, updated tree
+        t1 = self.get_transactions(head) #gets transactions from original tree
+        for i in range(t1):
+            assert t2[i] == t1[i] #checks that all items before new additions in tree 2 are identical to those in tree 1
+        t3 = t1.extend(t2[:len(t1)])
+        assert self._construct(t3) == self.root #checks that if all new items in tree 2 were added to tree 1, the root would be identical
     
+    @staticmethod
+    def get_transactions(head):
+        current = [head] #used as a queue for bfs of the nodes
+        for i in current:
+            while i['left']: #if nodes left value equals None which will read as False, and is guaranteed to be a leaf
+                current.append(i['left']) #appends left child to the queue
+                if i['right']:
+                    current.append(i['right']) #appends right child to the queue
+                current.pop()
+        return current
+
     def root_hash(self):
         """Returns the hash value of the mother node / root of the Merkle tree."""
         return self.root.data
